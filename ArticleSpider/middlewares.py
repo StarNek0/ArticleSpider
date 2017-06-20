@@ -4,7 +4,7 @@
 #
 # See documentation in:
 # http://doc.scrapy.org/en/latest/topics/spider-middleware.html
-
+# 可以定制middleware使Scrapy更可控
 from scrapy import signals
 
 
