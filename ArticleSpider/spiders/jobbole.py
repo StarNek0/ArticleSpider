@@ -6,7 +6,8 @@ import scrapy
 class JobboleSpider(scrapy.Spider):
     name = 'jobbole'
     allowed_domains = ['blog.jobbole.com']
-    start_urls = ['http://blog.jobbole.com/']
+    start_urls = ['http://blog.jobbole.com/111865/']
 
     def parse(self, response):
+        re_selector = response.xpath("/html/ body/ div[@id='wrapper']/ div[@class='grid-8']/ div[1]/ div[1]/ h1")  #
         pass
