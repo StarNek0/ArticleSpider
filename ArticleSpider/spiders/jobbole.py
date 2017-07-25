@@ -14,11 +14,18 @@ class JobboleSpider(scrapy.Spider):
         create_dat = response.xpath("//p[@class='entry-meta-hide-on-mobile']/text()").extract()[0]
         create_date = re.findall(r'\d+/\d+/\d+', create_dat)[0]
 
-        zan = response.xpath("//div[@class='post-adds']/span[1]/h10/text()").extract()[0]
+        praise_nums = response.xpath("//div[@class='post-adds']/span[1]/h10/text()").extract()[0]
 
-        shoucan = response.xpath("//span[@class=' btn-bluet-bigger href-style bookmark-btn  register-user-only ']/text()").extract()[0]
-        shoucang = re.search('\d', shoucan).group()
+        shoucang = response.xpath("//span[@class=' btn-bluet-bigger href-style bookmark-btn  register-user-only ']/text()").extract()[0]
+        fav_nums = re.search('\d', shoucang).group()
 
-        pinglu = response.xpath("//span[@class='btn-bluet-bigger href-style hide-on-480']/text()").extract()[0]
-        pinglun = re.search('\d', pinglu).group()
+        pinglun = response.xpath("//span[@class='btn-bluet-bigger href-style hide-on-480']/text()").extract()[0]
+        comment_nums = re.search('\d', pinglun).group()
+
+        article = response.xpath("//div[@class='entry']").extract()
+        print article[0]
+        tag_list = response.xpath("//p[@class='entry-meta-hide-on-mobile']/a/text()").extract()
+        tag_list = [tag for tag in tag_list if not tag.strip().endswith(u'评论')]
+        tags = ','.join(tag_list)
+        print tags
         pass
