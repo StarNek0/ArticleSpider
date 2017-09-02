@@ -3,6 +3,7 @@
 import scrapy
 import re
 
+
 class JobboleSpider(scrapy.Spider):
     name = 'jobbole'
     allowed_domains = ['blog.jobbole.com']
@@ -16,7 +17,8 @@ class JobboleSpider(scrapy.Spider):
 
         praise_nums = response.xpath("//div[@class='post-adds']/span[1]/h10/text()").extract()[0]
 
-        shoucang = response.xpath("//span[@class=' btn-bluet-bigger href-style bookmark-btn  register-user-only ']/text()").extract()[0]
+        shoucang = response.xpath(
+            "//span[@class=' btn-bluet-bigger href-style bookmark-btn  register-user-only ']/text()").extract()[0]
         fav_nums = re.search('\d', shoucang).group()
 
         pinglun = response.xpath("//span[@class='btn-bluet-bigger href-style hide-on-480']/text()").extract()[0]
@@ -28,4 +30,7 @@ class JobboleSpider(scrapy.Spider):
         tag_list = [tag for tag in tag_list if not tag.strip().endswith(u'评论')]
         tags = ','.join(tag_list)
         print tags
+
+        title = response.css(".entry-header h1::text").extract()[0]
+        print title
         pass
