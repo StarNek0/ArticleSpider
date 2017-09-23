@@ -1,31 +1,34 @@
-# -*- coding: utf-8 -*-
-# 产生这个文件的命令为项目根目录下scrapy genspider jobbole blog.jobbole.com
-import scrapy
+# coding:utf8
+# __author__ = 'zsdostar'
+# __date__ = '2017/9/23 11:04'
+# __sys__ = 'Windows 10'
+
 import re
+import scrapy
+from scrapy.http import Request
+from .last_jobbole import parse_detail
+import urlparse
+# urlparse是py2的，py3中是urllib.parse
+
 
 class JobboleSpider(scrapy.Spider):
-    name = 'jobbole'
+    name = "jobbole"
     allowed_domains = ['blog.jobbole.com']
-    start_urls = ['http://blog.jobbole.com/111865/']
+    start_urls = ['http://blog.jobbole.com/']
 
     def parse(self, response):
-        title = response.xpath("//div[@class='entry-header']/h1/text()").extract()[0]
+        """
+        1.获取文章列表页中的具体文章URL，并交给scrapy下载后进行解析
+        2.获取下一页的url并交给scrapy进行下载，下载完成后交给parse
+        :param response:
+        :return:
+        """
 
-        create_dat = response.xpath("//p[@class='entry-meta-hide-on-mobile']/text()").extract()[0]
-        create_date = re.findall(r'\d+/\d+/\d+', create_dat)[0]
+        # 解析列表页中的所有文章url并交给scrapy下载后进行解析
+        # blog列表页的所有需要的url如下
+        post_urls = response.css("#archive .floated-thumb .post-thumb a::attr(href)").extract()
+        for post_url in post_urls:
+            # 使用yield，然后scrapy自动下载
+            yield Request(url=urlparse.urljoin(response.url, post_url), callback=parse_detail)
 
-        praise_nums = response.xpath("//div[@class='post-adds']/span[1]/h10/text()").extract()[0]
-
-        shoucang = response.xpath("//span[@class=' btn-bluet-bigger href-style bookmark-btn  register-user-only ']/text()").extract()[0]
-        fav_nums = re.search('\d', shoucang).group()
-
-        pinglun = response.xpath("//span[@class='btn-bluet-bigger href-style hide-on-480']/text()").extract()[0]
-        comment_nums = re.search('\d', pinglun).group()
-
-        article = response.xpath("//div[@class='entry']").extract()
-        print article[0]
-        tag_list = response.xpath("//p[@class='entry-meta-hide-on-mobile']/a/text()").extract()
-        tag_list = [tag for tag in tag_list if not tag.strip().endswith(u'评论')]
-        tags = ','.join(tag_list)
-        print tags
-        pass
+        # 提取下一页并交给scrapy进行下载
