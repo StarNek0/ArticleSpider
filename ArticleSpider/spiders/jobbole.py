@@ -93,11 +93,11 @@ class JobboleSpider(scrapy.Spider):
         yield article_item
 
         # print tags
-        print("title:"), title
-        print("create_date:"), create_date
-        print("praise_nums:"), praise_nums
-        print("fav_nums:"), fav_nums
-        print("comment_nums:"), comment_nums
-        print("article:"), article
-        print("tags:"), tags
+        # print("title:"), title
+        # print("create_date:"), create_date
+        # print("praise_nums:"), praise_nums
+        # print("fav_nums:"), fav_nums
+        # print("comment_nums:"), comment_nums
+        # print("article:"), article
+        # print("tags:"), tags
         pass
