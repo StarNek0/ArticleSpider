@@ -78,7 +78,14 @@ class JobboleSpider(scrapy.Spider):
         tag_list = [tag for tag in tag_list if not tag.strip().endswith(u'评论')]
         tags = ','.join(tag_list)
 
+
         article_item["title"] = title
+
+        from datetime import datetime
+        try:
+            create_date = datetime.strptime(create_date, "%Y/%m/%d").date()
+        except:
+            create_date = datetime.now()
         article_item["create_date"] = create_date
         article_item["url"] = response.url
         article_item["url_object_id"] = get_md5(response.url)
