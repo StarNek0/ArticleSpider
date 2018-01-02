@@ -34,7 +34,7 @@ class JobboleSpider(scrapy.Spider):
             # 使用yield，然后scrapy自动下载
             image_url = post_node.css("img::attr(src)").extract_first("")
             post_url = post_node.css("::attr(href)").extract_first("")
-            yield Request(url=urlparse.urljoin(response.url, post_url), meta={"front_image_url": ""}, callback=self.parse_detail)
+            yield Request(url=urlparse.urljoin(response.url, post_url), meta={"front_image_url": image_url}, callback=self.parse_detail)
                                     # 此处urljoin可以分辨该url是否是完整的URL
 
         # 提取下一页并交给scrapy进行下载
@@ -82,7 +82,7 @@ class JobboleSpider(scrapy.Spider):
         article_item["create_date"] = create_date
         article_item["url"] = response.url
         article_item["url_object_id"] = None
-        article_item["front_image_url"] = front_image_url
+        article_item["front_image_url"] = [front_image_url]
         article_item["front_image_path"] = None
         article_item["parise_nums"] = praise_nums
         article_item["comment_nums"] = comment_nums
