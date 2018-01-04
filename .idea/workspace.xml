@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="07ffcd4f-c909-4c73-bf67-287994a51b50" name="Default" comment="完成了加载图片">
-      <change beforePath="" afterPath="$PROJECT_DIR$/ArticleSpider/spiders/oldchromedriver.exe" />
+    <list default="true" id="07ffcd4f-c909-4c73-bf67-287994a51b50" name="Default" comment="完成了selenium不加载图片访问网页（PS:ChromeDriver和其调用的配置变量一定要对应的上。如果不清楚变量名，就下载最新版的ChromeDriver，其配置变量名应该下载最新版的Chrome去看Chrome的配置文件，或者看官方文档）">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/ArticleSpider/spiders/chromedriver.exe" afterPath="$PROJECT_DIR$/ArticleSpider/spiders/chromedriver.exe" />
       <change beforePath="$PROJECT_DIR$/tools/selenium_spider.py" afterPath="$PROJECT_DIR$/tools/selenium_spider.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,10 +49,10 @@
       <file leaf-file-name="selenium_spider.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tools/selenium_spider.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="547">
-              <caret line="24" column="28" lean-forward="true" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+            <state relative-caret-position="459">
+              <caret line="17" column="14" lean-forward="false" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
               <folding>
-                <element signature="e#386#397#0" expanded="true" />
+                <element signature="e#425#436#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -325,7 +323,14 @@
       <option name="project" value="LOCAL" />
       <updated>1515046051835</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="完成了selenium不加载图片访问网页（PS:ChromeDriver和其调用的配置变量一定要对应的上。如果不清楚变量名，就下载最新版的ChromeDriver，其配置变量名应该下载最新版的Chrome去看Chrome的配置文件，或者看官方文档）">
+      <created>1515048716800</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1515048716800</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -368,7 +373,8 @@
     <MESSAGE value="selenium简单运行结果" />
     <MESSAGE value="selenium.py: 用selenium完成了对知乎的模拟登录&#10;zhihu_sel.py: 导入的Bobby的文件&#10;chromedriver.exe: selenium的驱动" />
     <MESSAGE value="微博selenium模拟登陆+下拉，调用函数窗口最大化失败，目测要加载完用JS来做" />
-    <option name="LAST_COMMIT_MESSAGE" value="微博selenium模拟登陆+下拉，调用函数窗口最大化失败，目测要加载完用JS来做" />
+    <MESSAGE value="完成了selenium不加载图片访问网页（PS:ChromeDriver和其调用的配置变量一定要对应的上。如果不清楚变量名，就下载最新版的ChromeDriver，其配置变量名应该下载最新版的Chrome去看Chrome的配置文件，或者看官方文档）" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成了selenium不加载图片访问网页（PS:ChromeDriver和其调用的配置变量一定要对应的上。如果不清楚变量名，就下载最新版的ChromeDriver，其配置变量名应该下载最新版的Chrome去看Chrome的配置文件，或者看官方文档）" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -382,7 +388,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#386#397#0" expanded="true" />
+            <element signature="e#425#436#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -392,7 +398,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#386#397#0" expanded="true" />
+            <element signature="e#425#436#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -651,10 +657,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tools/selenium_spider.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="24" column="28" lean-forward="true" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+        <state relative-caret-position="459">
+          <caret line="17" column="14" lean-forward="false" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
           <folding>
-            <element signature="e#386#397#0" expanded="true" />
+            <element signature="e#425#436#0" expanded="true" />
           </folding>
         </state>
       </provider>
