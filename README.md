@@ -1,4 +1,5 @@
 # ArticleSpider
-a basic practice in learning Scrapy.
+practice in learning Scrapy.
 
-暂定目标是爬取伯乐在线.
+- 爬取了伯乐在线的博客页文章
+- 使用selenium by Chrome模拟登陆知乎、微博
